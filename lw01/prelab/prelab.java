@@ -1,5 +1,4 @@
 import java.util.*;
-
 interface Chargeable{
     public int calculateCharge();
 }
