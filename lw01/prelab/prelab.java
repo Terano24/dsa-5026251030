@@ -1,8 +1,8 @@
 import java.util.*;
-interface Chargeable{
+interface chargeable{
     public int calculateCharge();
 }
-abstract class PrintJob implements Chargeable{
+abstract class PrintJob implements chargeable{
     private String id;
     private int pages;
 
@@ -20,7 +20,6 @@ abstract class PrintJob implements Chargeable{
     public int getPages(){
         return pages;
     }
-    @Override
     public int calculateCharge(){
         return pages * 10;
     }
