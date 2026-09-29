@@ -47,7 +47,7 @@ public class main {
                     if (transType.equals("DEPOSIT")) {
                         currentBalance += AMOUNT;
                         customerRecord[1] = Integer.toString(currentBalance);
-                    } else if (transType.equals("WITHDRAW")) {
+                    }else if (transType.equals("WITHDRAW")) {
                         if (currentBalance >= AMOUNT) {
                             currentBalance -= AMOUNT;
                             customerRecord[1] = Integer.toString(currentBalance);
