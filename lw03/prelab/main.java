@@ -3,7 +3,7 @@ public class main{
     public static void problem1 (Scanner sc){
         LinkedList <String> playlist = new LinkedList<>();
         while(sc.hasNextLine()){
-            String[] song = sc.nextLine().split(" ");
+            String[] song = sc.nextLine().split(" ", 3);
             String type = song[0];
             if(type.equals("INSERT")){
                 int index = Integer.parseInt(song[1]);
@@ -30,17 +30,19 @@ public class main{
     public static void problem2(Scanner sc){
         Set<String> nameSet = new LinkedHashSet<>();
         int duplicate = 0;
+        int unique = 0;
         while(sc.hasNextLine()){
             String name = sc.nextLine();
-            if(!nameSet.contains(name)){
-                nameSet.add(name);
+            if(!nameSet.add(name)){
+                duplicate++;
             }else{
-            duplicate +=1 ;
-        }
+                unique ++;
+            }
+        
         }sc.close();
         int i = 1;
-        
         System.out.println("===== Problem 2 =====");
+        System.out.println("Unique registrations: "+ unique);
         for(String out: nameSet){
             System.out.println(i +" :" +out);
             i++;

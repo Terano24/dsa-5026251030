@@ -30,16 +30,19 @@ public class main {
                 String drink = queueNode[2];
                 int table =Integer.parseInt(queueNode[3]);
 
-                boolean foodStatus = sideDish.equals("-");
-                boolean drinkStatus = drink.equals("-");
-
+                boolean status = true;
+                
                 String[] targetFood = null;
                 String[] targetDrink = null;
                 for(String[] element : foodStock){
                     if(element[0].equals(sideDish)){
                         if(Integer.parseInt(element[1]) > 0){
                             targetFood = element;
-                            foodStatus = true;
+                            int Food= Integer.parseInt(targetFood[1]);
+                            targetFood[1] = String.valueOf(Food - 1);
+                            status = true;
+                        }else{
+                            status = false;
                         }
                         break;
                     }
@@ -48,23 +51,18 @@ public class main {
                     if(element[0].equals(drink)){
                         if(Integer.parseInt(element[1]) > 0){
                             targetDrink = element;
-                            drinkStatus = true;
+                            int Drink = Integer.parseInt(targetDrink[1]);
+                            targetDrink[1] = String.valueOf(Drink - 1);
+                            status = true;
+                        }else{
+                            status = false;
                         }
                         break;
                     }
                 }
 
-                boolean status = foodStatus && drinkStatus;
+                
                 if(status){
-                    if(targetFood != null){
-                    int Food= Integer.parseInt(targetFood[1]);
-                    targetFood[1] = String.valueOf(Food - 1);
-                    }
-                    if(targetDrink != null){
-                    int Drink = Integer.parseInt(targetDrink[1]);
-                    targetDrink[1] = String.valueOf(Drink - 1);
-                    }
-
                     successfull.add(queueNode);
                 }else{
                     failedStack.push(queueNode);

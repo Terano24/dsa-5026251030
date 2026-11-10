@@ -11,8 +11,8 @@ public class main {
         Set<String> uniqueRegistrations = new LinkedHashSet<>();
         Set<String> checkedInStudents = new HashSet<>();
         
-        List<String> checkinResults = new LinkedList<>();
-        
+        List<String> checkinResults = new LinkedList<>();//store output checkin
+
         while (scRegistrations.hasNextLine()) {
             String name = scRegistrations.nextLine();
             if (uniqueRegistrations.add(name)) {
