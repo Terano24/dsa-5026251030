@@ -1,8 +1,6 @@
-package lw05.prelab;
-
 import java.util.*;
 
-public class Main {
+public class main {
     static int[][] graph;
     static int size;
     static String[] names;
@@ -114,7 +112,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(Main.class.getResourceAsStream("campus.txt"));
+        Scanner scanner = new Scanner(main.class.getResourceAsStream("campus.txt"));
 
         size = scanner.nextInt();
         names = new String[size];
