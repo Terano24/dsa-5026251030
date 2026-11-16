@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class main {
-    // Bubble sort descending. Mengurutkan dari putaran ke-dari sampai putaran ke-sampai (0-based, sampai tidak termasuk)
+   
     static void bubbleSortMenurun(int[] rak, int putaranAwal, int putaranAkhir) {
         int n = rak.length;
         for (int i = putaranAwal; i < putaranAkhir; i++) {
@@ -15,7 +15,6 @@ public class main {
         }
     }
 
-    // Binary search pada array terurut menurun. langkah[0] menyimpan jumlah penimbangan
     static int cariPaket(int[] rak, int target, int[] langkah) {
         int bawah = 0;
         int atas = rak.length - 1;
@@ -35,37 +34,36 @@ public class main {
     }
 
     public static void main(String[] args) {
-        Scanner pemindai = new Scanner(main.class.getResourceAsStream("parcels.txt"));
+        Scanner sc = new Scanner(main.class.getResourceAsStream("parcels.txt"));
 
-        int jumlahPaket = pemindai.nextInt();
+        int jumlahPaket = sc.nextInt();
         int[] rak = new int[jumlahPaket];
         for (int i = 0; i < jumlahPaket; i++) {
-            rak[i] = pemindai.nextInt();
+            rak[i] = sc.nextInt();
         }
 
-        int jumlahTarget = pemindai.nextInt();
+        int jumlahTarget = sc.nextInt();
         int[] target = new int[jumlahTarget];
         for (int i = 0; i < jumlahTarget; i++) {
-            target[i] = pemindai.nextInt();
+            target[i] = sc.nextInt();
         }
-        pemindai.close();
+        sc.close();
 
-        // Tahap 1: tepat 2 putaran, lalu salin saat baterai habis
+        
         bubbleSortMenurun(rak, 0, 2);
-        int[] rakBateraiHabis = new int[jumlahPaket];
+        int[] Habis = new int[jumlahPaket];
         for (int i = 0; i < jumlahPaket; i++) {
-            rakBateraiHabis[i] = rak[i];
+            Habis[i] = rak[i];
         }
 
-        // Tahap 2: lanjutkan sampai total N - 1 putaran
         bubbleSortMenurun(rak, 2, jumlahPaket - 1);
 
         System.out.println("==== After 2 Passes ====");
-        for (int i = 0; i < rakBateraiHabis.length; i++) {
+        for (int i = 0; i < Habis.length; i++) {
             if (i > 0) {
                 System.out.print(" ");
             }
-            System.out.print(rakBateraiHabis[i]);
+            System.out.print(Habis[i]);
         }
         System.out.println();
         System.out.println();
