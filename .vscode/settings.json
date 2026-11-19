@@ -7,6 +7,9 @@
         "lw02/unguided",
         "lw03/prelab",
         "lw03/unguided",
+        "lw05/prelab",
+        "lw05/unguided",
+        "lw06/prelab",
         "practice"
     ],
     "java.project.outputPath": "bin",
